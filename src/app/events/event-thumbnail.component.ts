@@ -8,9 +8,12 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
       <div>Date: {{event?.date}}</div>
       <div>Time: {{event?.time}}</div>
       <div>Price: \${{event?.price}}</div>
-      <div>
-        <span>Location: {{event?.location.address}}</span>
+      <div *ngIf="event?.location">
+        <span>Location: {{event?.location?.address}}</span>
         <span class="pad-left">{{event?.location?.city}}, {{event?.location?.country}}</span>
+      </div>
+      <div *ngIf="event?.onlineurl">
+        Online URL: {{event.onlineurl}}
       </div>
       <!--<button class="btn btn-primary" (click)="handleClickMe()">Click Me!</button>-->
     </div>
